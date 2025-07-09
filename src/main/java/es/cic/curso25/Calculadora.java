@@ -10,4 +10,9 @@ public class Calculadora extends Object {
     public void sumar(double valor) {
         total = total + valor;
     }
+
+    public void restar(double valor) {
+        total = total - valor;
+    }
+
 }
