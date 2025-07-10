@@ -1,6 +1,8 @@
 package es.cic.curso25;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,14 +25,20 @@ public class CocheTest {
     }
 
     @Test
-    // pensar el tema de las excepciones, complicado, tenerlo en cuenta, con test escritos
-    // para comprobar dichas excepciones, es decir, revisar el metodo de frenar en la clase Coche
     void testFrenar() {
         c.acelerar(50);
         int velocidadFinal = c.frenar(23);
 
         assertEquals(27, velocidadFinal);
 
+    }
+
+    @Test
+    void testFrenarMayorQueVelocidad(){
+
+        c.acelerar(50);
+
+        assertThrows(ArithmeticException.class,  () -> c.frenar(51), "El coche no puede frenar hasta tener una velocidad negativa");
     }
 
     @Test

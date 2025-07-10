@@ -35,8 +35,14 @@ public class Coche {
     }
 
     public int frenar(int decrementoVelocidad) {
+
         this.calculadora.limpiar();
         this.calculadora.sumar(this.velocidad);
+
+        if (this.getVelocidad() < decrementoVelocidad) {
+            throw new ArithmeticException("La velocidad al frenar el coche no puede ser negativa,"
+                    + " el maximo frenado será hasta que pare el coche (0)");
+        }
 
         this.calculadora.restar(decrementoVelocidad);
 
