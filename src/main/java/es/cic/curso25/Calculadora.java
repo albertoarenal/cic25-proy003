@@ -15,4 +15,18 @@ public class Calculadora extends Object {
         total = total - valor;
     }
 
+    public void multiplicar(double valor){
+        total = total * valor;
+    }
+
+    
+    public void dividir(double valor){
+        
+        if (valor == 0){
+
+            throw new ArithmeticException("No existe la división entre cero");
+        }
+
+        total = total / valor;
+    }
 }
